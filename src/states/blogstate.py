@@ -1,5 +1,12 @@
-from typing import TypedDict
+from typing import TypedDict, Literal, Annotated
 from pydantic import BaseModel, Field
+from langgraph.graph import add_messages
+
+
+class LanguageDetection(BaseModel):
+    current_language: Literal["Portuguese", "Spanish", "English"] = Field(
+        description="Language of the blog"
+    )
 
 
 class Blog(BaseModel):
@@ -10,4 +17,4 @@ class Blog(BaseModel):
 class BlogState(TypedDict):
     topic: str
     blog: Blog
-    current_language: str
+    language: LanguageDetection

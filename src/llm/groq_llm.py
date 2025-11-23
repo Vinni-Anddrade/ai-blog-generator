@@ -7,5 +7,5 @@ class GroqLLM:
         load_dotenv()
 
     def get_llm(self):
-        model = ChatGroq(model="openai/gpt-oss-120b")
+        model = ChatGroq(model="meta-llama/llama-4-scout-17b-16e-instruct")
         return model
